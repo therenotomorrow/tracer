@@ -1,0 +1,68 @@
+[tool.poetry]
+name = "tracer"
+version = "0.1.0"
+description = ""
+authors = ["Kirill Kolesnikov <kkxnes@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+python-json-logger = "^2.0.4"
+isort = "^5.11.4"
+black = "^22.12.0"
+wemake-python-styleguide = "^0.17.0"
+mypy = "^0.991"
+pyproject-flake8 = "^0.0.1-alpha.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+skip_string_normalization = true
+target_version = ["py310"]
+
+[tool.isort]
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+use_parentheses = true
+ensure_newline_before_comments = true
+
+[tool.flake8]
+max-line-length = 88
+show-source = true
+inline-quotes = "single"
+extend-ignore = [
+    # Ignore doc-strings everywhere but not in public APIs
+    "D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107", "D400", "D401", "DAR101", "DAR201"
+]
+
+[tool.mypy]
+show_error_codes = true
+ignore_errors = false
+disallow_any_explicit = false
+allow_redefinition = false
+disallow_any_generics = true
+disallow_subclassing_any = false
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = false
+implicit_reexport = false
+strict_equality = true
+local_partial_types = true
+ignore_missing_imports = true
+warn_unused_configs = true
+strict_optional = true
+warn_unreachable = true
+warn_no_return = true
